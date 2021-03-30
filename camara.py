@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 from pyzbar.pyzbar import decode
-import os
 
 # se guarda en variable el tamano total de la imagen
 alto_img = 480
@@ -24,7 +23,6 @@ def foto():
     cv2.waitKey(1)
     decoded = decode(blur)
     if decoded:
-        os.system("clear")
         data = decoded[0].data.decode('utf-8')
         if data == "https://github.com/FenixAlive/cargabot":
             return decoded[0].rect
@@ -34,4 +32,4 @@ def foto():
 if __name__ == '__main__':
     if cam.read()[0]:
         while(1):
-            foto()
+            print(foto())
